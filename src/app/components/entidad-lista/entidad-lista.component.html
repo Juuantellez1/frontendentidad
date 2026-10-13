@@ -1,0 +1,24 @@
+<h1>Entidades</h1>
+
+<app-entidad-form (guardada)="refrescarLista()"></app-entidad-form>
+
+<table border="1" *ngIf="entidades.length > 0; else sinDatos">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>NIT</th>
+      <th>Nombre</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let e of entidades">
+      <td>{{ e.id }}</td>
+      <td>{{ e.nit }}</td>
+      <td>{{ e.nombre }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #sinDatos>
+  <p>No hay entidades registradas.</p>
+</ng-template>
